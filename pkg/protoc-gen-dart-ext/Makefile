@@ -61,5 +61,38 @@ dep:
 	go get -u github.com/lyft/protoc-gen-star
 
 dep-clean:
+
+gen-proto:
+	# These core ones used seldom.
+
+gen: ### gen
+	# Currently staged. Order matters !
+
+	# TO DO: Differentiates between Design time and Build Time in the workflow.
+	cd $(DET_LIB_FSPATH) && make gen_atom
+	cd $(DET_LIB_FSPATH) && make gen_currency
+	cd $(DET_LIB_FSPATH) && make gen_prefix
+	# Needs zip !
+	cd $(DET_LIB_FSPATH) && make gen_units_gtt
+	cd $(DET_LIB_FSPATH) && make gen_proto
+	cd $(DET_LIB_FSPATH) && make gen_golang
+	cd $(DET_LIB_FSPATH) && make gen_dart
+	cd $(DET_LIB_FSPATH) && make gen_gtt_to_dart
+	cd $(DET_LIB_FSPATH) && make gen_exports
+	cd $(DET_LIB_FSPATH) && make gen_exports_go
+
+flu-run: ### flu-run
+	cd $(DET_LIB_FSPATH) && flutter run -d all
+
+	
+	
+	
+	
+
+	
+	
+	
+
+
 	
 	
