@@ -19,6 +19,7 @@ There are 3 GUI's needed:
 - Mobile and Desktop using Flutter.
 	- See the [Flutter folder](../blob/master/flutter/README.md)
 - Hugo for the docs web site and main website. 
+	- See the [Hugo folder](../blob/master/hugo/README.md)
 - A Web based Dashboard and CLI to make it easy for both Developers and Translators to use the system.
 	- For Developers some tools for the code generation to make it easy for developers to manage their GUI and generate the required i18n and l10n files.
 	- For Translators some tools to do the translation work for each languages.
