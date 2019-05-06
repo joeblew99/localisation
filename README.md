@@ -1,47 +1,64 @@
 # Gitea Translation
 
 
-Because of this need in Gitea !!
+Because of this need in Gitea:
+
 https://github.com/go-gitea/gitea/issues/6552#issuecomment-483582189
+
+The is a system to build GUI's and Servers that fully support i18N and l10n.
+
+Its designed for Hugo, Golang Server and Flutter Clients ( Mobile, Desktop and Web).
+
+
+## Status
+
+Parts of this work, however the libraries need to be integrated and refined.
 
 ## i18n & l10n
 
-You need to do both to have a decent app that works in many locales.
+For any Application or Server its quite complex to get it working for many different locales. Its often over looked how complex it is to get it smoothly working and to have it work with CI because of the many actors.
 
-i18n is mostly related to the language translation. Plurals is important here.
+i18n is related to language translation. Plurals is important here.
 
-l10n is related to the runtime conversion of Dates, Currencies, etc
+
+l10n is related to Dates, Currencies, etc.
+
+- Clients need to convert the values from the Neutral values to what the Client locale is.
+
+- Servers should store all l10n related data in a neural format and for each locale it needs to convert the values from the client locale to the global neutral values.
+
+- Examples:
+
+	- DateTime as UTC values
+	- Currency as Floats.
+	- SI Units as Metric values
+
+
+## CMD
+
+A Web based Dashboard and CLI to make it easy for both Developers and Translators to use the system.
+
+See the [Workflow gui folder](/cmd/workflpw/README.md) for more information.
+
+Its provides:
+
+- For Developers the tools for the code generation to make it easy to manage their GUI and generate the required i18n and l10n files.
+
+- For Translators the tools to do the translation work for each language.
+
+- A Server to run the workflow as part of any CI process.
+
 
 ## GUI
 
+These are the libraries the Developer uses in their Apps and GUI's.
+
+There are also examples.
+
 There are 3 GUI's needed:
 
-- Mobile and Desktop using Flutter.
-	- See the [Flutter folder](/flutter/README.md)
-- Hugo for the docs web site and main website.
-	- See the [Hugo folder](/hugo/README.md)
-- A Web based Dashboard and CLI to make it easy for both Developers and Translators to use the system.
-	- For Developers some tools for the code generation to make it easy for developers to manage their GUI and generate the required i18n and l10n files.
-	- For Translators some tools to do the translation work for each languages.
+- Mobile and Desktop using Flutter for the Gitea App.
+	- See the [Flutter gui folder](/gui/flutter/README.md)
 
-## Parts of the system
-
-3 aspects to make it work
-
-1. Design time
-- The process for a developer.
-- The libraries Hugo, Web and Flutter app need to use.
-
-2. CI Time
-
-- The workflow to get the data properly translated.
-- See the Workflow folder ...
-
-3. Runtime
-
-- Gitea web and flutter app can use the ARB and Dart files so that it works in many languages
-- Gitea hugo web site uses the translated files itself.
-
-- See the Hugo and Flutter folders ...
-
-
+- Web using Hugo for the docs web site and main website.
+	- See the [Hugo gui folder](/gui/hugo/README.md)

@@ -1,4 +1,4 @@
-# Hugo
+# Hugo GUI
 
 ## Artifacts
 Hugo uses Markdown and JSON files to do the i18n.
