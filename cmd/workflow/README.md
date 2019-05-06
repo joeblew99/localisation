@@ -60,7 +60,7 @@ Its just a denormalized Key Value store of all the data derived from the Develop
 - It parses the Developers files to generate the Key Value pairs.
 
 - Indexing and Search to make it easy to manage.
-	- See the  [i18n-indexer package](/pkg/i18n-indexer/README.md) for more info ...
+	- See the  [i18n-indexer package](/pkg/i18n-indexer/) for more info ...
 
 ## Logic
 
@@ -111,7 +111,7 @@ The basic workflow is:
 
 			- Just use the value found in the cache.
 
-	- See the google-trans [google-trans package](/pkg/google-trans/README.md) for more info ...
+	- See the google-trans [google-trans package](/pkg/google-trans) for more info ...
 
 
 4. Human Translation
