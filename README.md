@@ -14,7 +14,8 @@ l10n is related to the runtime conversion of Dates, Currencies, etc
 
 ## GUI
 
-There are 3 GUI's needed
+There are 3 GUI's needed:
+
 - Mobile and Desktop which Flutter does from Dart files and does it very well.
 - Hugo for the docs
 - A Web based Dashboard and CLI to make it easy for both Developers and Translators to use the system.
