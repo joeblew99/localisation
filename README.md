@@ -38,7 +38,7 @@ l10n is related to Dates, Currencies, etc.
 
 A Web based Dashboard and CLI to make it easy for both Developers and Translators to use the system.
 
-See the [Workflow gui folder](/cmd/workflow/) for more information.
+See the [Workflow GUI folder](/cmd/workflow/) for more information.
 
 Its provides:
 
@@ -58,7 +58,7 @@ There are also examples.
 There are 3 GUI's needed:
 
 - Mobile and Desktop using Flutter for the Gitea App.
-	- See the [Flutter gui folder](/gui/flutter/)
+	- See the [Flutter GUI folder](/gui/flutter/)
 
 - Web using Hugo for the docs web site and main website.
-	- See the [Hugo gui folder](/gui/hugo/)
+	- See the [Hugo GUI folder](/gui/hugo/)
