@@ -7,7 +7,9 @@ https://github.com/go-gitea/gitea/issues/6552#issuecomment-483582189
 ## i18n & l10n
 
 You need to do both to have a decent app that works in many locales.
+
 i18n is mostly related to the language translation. Plurals is important here.
+
 l10n is related to the runtime conversion of Dates, Currencies, etc
 
 ## GUI
