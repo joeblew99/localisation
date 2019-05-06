@@ -16,15 +16,16 @@ l10n is related to the runtime conversion of Dates, Currencies, etc
 
 There are 3 GUI's needed:
 
-- Mobile and Desktop which Flutter does from Dart files and does it very well.
-- Hugo for the docs
+- Mobile and Desktop using Flutter.
+	- See the [Flutter folder](../blob/master/flutter/README.md)
+- Hugo for the docs web site and main website. 
 - A Web based Dashboard and CLI to make it easy for both Developers and Translators to use the system.
 	- For Developers some tools for the code generation to make it easy for developers to manage their GUI and generate the required i18n and l10n files.
-	- For Translators some tools to DO the translation work for each languages.
+	- For Translators some tools to do the translation work for each languages.
 
-## Parts
+## Parts of the system
 
-3 aspects to make it easy.
+3 aspects to make it work
 
 1. Design time
 - The process for a developer.
