@@ -38,7 +38,7 @@ l10n is related to Dates, Currencies, etc.
 
 A Web based Dashboard and CLI to make it easy for both Developers and Translators to use the system.
 
-See the [Workflow gui folder](/cmd/workflpw/README.md) for more information.
+See the [Workflow gui folder](/cmd/workflow/README.md) for more information.
 
 Its provides:
 
