@@ -4,17 +4,20 @@ SHELL:=/bin/bash
 GO111MODULE=on
 
 
+# github.com/ashour/flutter_i18n_complete
+# blog: https://phraseapp.com/blog/posts/how-to-internationalize-a-flutter-app/
 
 
 FLU_LIB_NAME=flutter_i18n_complete
 FLU_LIB=github.com/ashour/$(FLU_LIB_NAME)
 FLU_LIB_PATH=$(GOPATH)/src/$(FLU_LIB)
 FLU_LIB_EX_PATH=$(FLU_LIB_PATH)/example/test_app
+FLU_LIB_TRANS_PATH=$(FLU_LIB_PATH)/lib/l10n
 FLU_LIB_DOC=https://$(FLU_LIB)
 
-# https://github.com/bregydoc/gtranslate
-GO_LIB_NAME=gtranslate
-GO_LIB=github.com/bregydoc/$(GO_LIB_NAME)
+# https://github.com/yurykabanov/i18n-indexer
+GO_LIB_NAME=i18n-indexer
+GO_LIB=github.com/yurykabanov/$(GO_LIB_NAME)
 GO_LIB_PATH=$(GOPATH)/src/$(GO_LIB)
 GO_LIB_BUILD_PATH=$(GO_LIB_PATH)/build
 GO_LIB_DOC=https://$(GO_LIB)
@@ -35,6 +38,7 @@ print:
 	@echo 'FLU_LIB                   $(FLU_LIB)'
 	@echo 'FLU_LIB_PATH              $(FLU_LIB_PATH)'
 	@echo 'FLU_LIB_EX_PATH           $(FLU_LIB_EX_PATH)'
+	@echo 'FLU_LIB_TRANS_PATH        $(FLU_LIB_TRANS_PATH)'
 	@echo 'FLU_LIB_DOC               $(FLU_LIB_DOC)'
 	@echo
 
@@ -63,17 +67,7 @@ git-clean: ### git-clean
 bin-clean:
 	rm -rf $(PWD)/bin
 
-ph-dep::
-	brew tap phrase/brewed
-	brew install phraseapp
 
-phr-run:
-	cd $(FLU_LIB_PATH) && phraseapp
-
-trans:
-	# Generating the Messages ARB file
-	mkdir -p $(FLU_LIB_PATH)/lib/l10n
-	cd $(FLU_LIB_PATH) && flutter pub pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/src/lang/sit_localizations.dart
 
 ### FLU
 
@@ -97,8 +91,51 @@ flu-desk-build: ### flu-desk-run
 	cd $(FLU_LIB_PATH) && hover build
 	open $(FLU_LIB_PATH)/desktop/build/outputs/darwin/$(FLU_LIB_NAME)
 
+### LOCALIZE
+# https://mail.google.com/mail/u/0/#inbox/FMfcgxwCgLvrdNknvHrlqhrgLbXvKHQZ
 
-### LN
+loc-open:
+	open https://localise.biz/dashboard/project/init?p=67430
+
+loc-push:
+	curl https://localise.biz/api/import/arb?locale=en --data-binary $(FLU_LIB_PATH)/lib/l10n/messages_en.dart
+
+loc-pull:
+	 curl https://localise.biz/api/export/locale/en.arb
+
+
+### TRANS
+tran-build: ### tran-build
+	go build -o $(GOPATH)/bin/tran main.go
+
+tran-ls:
+	cd $(FLU_LIB_PATH)/lib/l10n && ls -al
+
+tran-send:
+	go run main.go
+
+	# Now open each in Compare mode :)
+	#/Users/apple/workspace/go/src/github.com/ashour/flutter_i18n_complete/lib/l10n/intl_messages_en.arb
+	#/Users/apple/workspace/go/src/github.com/ashour/flutter_i18n_complete/lib/l10n/intl_messages_de.arb
+	#File: Compare Active File With ...
+tran-diff:
+	cd $(FLU_LIB_PATH)/lib/l10n && code -d intl_messages_en.arb intl_messages_ar.arb
+
+tran-extract:
+	# Generating the Messages ARB file
+	mkdir -p $(FLU_LIB_PATH)/lib/l10n
+	cd $(FLU_LIB_PATH) && flutter pub pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/src/lang/sit_localizations.dart
+
+tran-gen:
+	# copy exisiting just in case we screw up
+	rm -rf $(FLU_LIB_PATH)/lib/l10n_temp
+	mkdir -p $(FLU_LIB_PATH)/lib/l10n_temp
+
+	cp -r $(FLU_LIB_PATH)/lib/l10n $(FLU_LIB_PATH)/lib/l10n_temp
+	cd $(FLU_LIB_PATH) && flutter pub pub run intl_translation:generate_from_arb lib/src/lang/sit_localizations.dart lib/l10n/*.arb --output-dir=lib/l10n
+
+	
+### GO Indexer
 
 go-clean: ### go-web-clean
 	rm -rf $(GO_LIB_BUILD_PATH)
@@ -106,33 +143,7 @@ go-clean: ### go-web-clean
 go-code: ### go-code
 	code $(GO_LIB_PATH)
 
-go-server-run: ### go-server-run
-	mkdir -p $(GO_LIB_PATH)
-	mkdir -p $(GO_LIB_PATH)/db
-	mkdir -p $(GO_LIB_PATH)/config
 
-	# configs
-	cp i18n-indexer.yml $(GO_LIB_PATH)
-	cp bolt.db $(GO_LIB_PATH)/db
-	cp projects.example.yml $(GO_LIB_PATH)/config/projects.yml
-
-	# build to root
-	go mod download
-	cd $(GO_LIB_PATH) && go build -o ./server ./cmd/server/main.go 
-
-	# run
-	cd $(GO_LIB_PATH) && ./server
-
-go-web-build:
-	cd $(GO_LIB_PATH) && build/docker.sh
-
-go-web-open: ### go-web-open
-	open http://localhost:8000
-	
-go-bolter:
-	go get -u github.com/hasit/bolter
-	#bolter -f $(GO_LIB_PATH)/db/bolt.db
-	bolter -f $(GO_LIB_PATH)/db/bleve/store
 
 
 
