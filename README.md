@@ -5,15 +5,20 @@ The is a system to build GUI's and Servers that fully support i18N and l10n.
 
 Designed for Hugo, Golang Server and Flutter Clients ( Mobile, Desktop and Web).
 
+
 ## Status
 
 Planning and getting approach together with code.
+
 Please feel free to add any tips, info you can see or critique the approach. 
+
+NOTE: repo is a mess right now :) Doing experiments.
+
 
 ## Why
 
 
-Flutter is an excellent GUi system, and has a great Localisation framework, but:
+Flutter is an excellent GUI system, and has a great Localisation framework, but:
 
 - We need tools that scale with project size. 
 
