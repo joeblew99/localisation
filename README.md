@@ -1,13 +1,11 @@
 # Gitea Translation
 
 
-Because of this need in Gitea:
-
-https://github.com/go-gitea/gitea/issues/6552#issuecomment-483582189
-
 The is a system to build GUI's and Servers that fully support i18N and l10n.
 
-Its designed for Hugo, Golang Server and Flutter Clients ( Mobile, Desktop and Web).
+Designed for Hugo, Golang Server and Flutter Clients ( Mobile, Desktop and Web).
+
+
 
 ## Quick Summary
 
@@ -30,18 +28,28 @@ i10n:
 - Extensible for now things because its code gen based.
 
 Workflow:
+
 - for teams
 - not reliant on third parties if you dont want it.
 - extensible: So use CSV, Use Web GUI, use what makes sense. 
 - Translation memory
 - plug into different machine translation as needed.
 
+Golang:
 
-Sub project dependency.
-https://github.com/joeblew99/gitea-trans/blob/master/pkg/protoc-gen-dart-ext/Makefile
-Empirefox
-This is still very unstable.
+- Can be used with any golang server code. Not dependent on Gin, Echo, etc.
 
+Code generated:
+
+- To make it easy to manage and extend, uses lots of code gen.
+- See: https://github.com/joeblew99/gitea-trans/blob/master/pkg/protoc-gen-dart-ext/Makefile
+- Stil unstable, but getting there.
+
+Test Harness:
+
+- Using Gitea FLutter as a test harness, and because it will be good for Gitea.
+- Their project: https://github.com/pd4d10/git-touch
+- See: https://github.com/joeblew99/gitea-trans/blob/master/gui/flutter/flutter-git-gui/
 
 ## Status
 
