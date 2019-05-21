@@ -5,6 +5,18 @@ The is a system to build GUI's and Servers that fully support i18N and l10n.
 
 Designed for Hugo, Golang Server and Flutter Clients ( Mobile, Desktop and Web).
 
+## Why
+
+
+Flutter is an excellent GUi system, and has a great Localisation framework, but:
+
+- We need tools that scale with project size. 
+
+- When you have 20 pages, and 4 widgets in each, thats 80 widgets to localise and keep in sync
+
+- Once you get past 2 languages and doing 5 or 6, you get bogged down. 
+
+- Same Localisation tools for Flutter and golang because you need to do L10n and i18n on both sides. Leverage one base for all of it.
 
 
 ## Quick Summary
@@ -13,6 +25,7 @@ Designed for Hugo, Golang Server and Flutter Clients ( Mobile, Desktop and Web).
 Integration with Flutter and golang:
 
 - 100% matches into the FLutter and golang way of plugging into localisation. Not reinventing the wheel there.
+- Using ARB on both sides.
 
 i18n:
 
