@@ -5,6 +5,11 @@ The is a system to build GUI's and Servers that fully support i18N and l10n.
 
 Designed for Hugo, Golang Server and Flutter Clients ( Mobile, Desktop and Web).
 
+## Status
+
+Planning and getting approach together with code.
+Please feel free to add any tips, info you can see or critique the approach. 
+
 ## Why
 
 
