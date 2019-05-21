@@ -9,6 +9,39 @@ The is a system to build GUI's and Servers that fully support i18N and l10n.
 
 Its designed for Hugo, Golang Server and Flutter Clients ( Mobile, Desktop and Web).
 
+## Quick Summary
+
+
+Integration with Flutter and golang:
+
+- 100% matches into the FLutter and golang way of plugging into localisation. Not reinventing the wheel there.
+
+i18n:
+
+- plurals 
+- codegen for flutter and golang
+
+i10n:
+
+- codegen for flutter and golang
+- Data time
+- Currency
+- SI Units ( temperature, ec etc etc )
+- Extensible for now things because its code gen based.
+
+Workflow:
+- for teams
+- not reliant on third parties if you dont want it.
+- extensible: So use CSV, Use Web GUI, use what makes sense. 
+- Translation memory
+- plug into different machine translation as needed.
+
+
+Sub project dependency.
+https://github.com/joeblew99/gitea-trans/blob/master/pkg/protoc-gen-dart-ext/Makefile
+Empirefox
+This is still very unstable.
+
 
 ## Status
 
